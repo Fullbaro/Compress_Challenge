@@ -1,4 +1,4 @@
-file = open("original_file.txt", "r").read()
+file = open("test.txt", "r").read()
 temp_file = file
 unique_char = "😀"
 # Megkeresni az optimális leggyakoribb, leghosszabb karakterláncokat,
@@ -66,7 +66,7 @@ f.close()
 
 
 # Test result
-old = open('original_file.txt', 'r')
+old = open('test.txt', 'r')
 old.seek(0, 2)
 old_size = old.tell()
 new = open('compressed.txt', 'r')

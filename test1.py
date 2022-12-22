@@ -30,21 +30,19 @@ while True: # Addig keresem az ideális karakterlánc hosszt, amíg meg nem tal�
         print("Best sequnce length found:", seq_len)
         break
 
-idxl = 0 # Ha leírod az indexeket egyesével egymás után, hány karaktert fognak kitenni összesen
-for i in range(len(seqs)):
-    idxl += len(str(i))
-a = sum(seqs.values()) * seq_len # A karakterláncok előfordulásai összesen * milyen hosszúak
-b = len(seqs) # Hány karakterlánc van
-c = a - b # Hány karaktert spórolok meg a karakterláncok indexekre való cseréjével
-d = c - idxl # Az indexeket is el kell mentenem valahova
-e = d - len(seqs)*seq_len # A karakterláncokat is el kell menetem 1x, hogy tudjam mi lett indexre cserélve
-
-print(e, len(file))
-print(f"Characters saved: {e} = {round((e / len(file)) * 100)}%")
+#seqs = dict(sorted(seqs.items(), key=lambda item: item[1], reverse=True)) Ennek majd kevert hosszúságú karakterláncoknál lesz értelme
 
 
-# for key, value in seqs.items():
-#     print(key, value)
+print(f"Original character count: {len(file)}")
+tmp = file
+idx = 0
+for key, value in seqs.items():
+    tmp = tmp.replace(key, str(idx))
+    idx += 1
+print(f"After replacements: {len(tmp)}")
+print(f"Character seqence 1x has to be saved, takes: {len(seqs)*seq_len}")
+print(f"Character count after: {(len(seqs)*seq_len)+len(tmp)}")
+
 
 # TODO:
 # Leplacelem a karakterláncokat a számmal a szövegben - gond hogy kell a szám elé és mögé karakter hogy tudjam az egy index szám.

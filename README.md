@@ -1,2 +1,1 @@
-# Compress_Challenge
- 
+A compression challenge inspired by the Silicon Valley series. The goal was to write a compression algorithm where no external libraries could be imported and the use of any internet or other help was prohibited
